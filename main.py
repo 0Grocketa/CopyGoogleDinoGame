@@ -6,11 +6,11 @@ from random import randint,choice
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        player_walk1 = pygame.image.load("Graphics\Player\player_walk_1.png").convert_alpha()
-        player_walk2 = pygame.image.load("Graphics\Player\player_walk_2.png").convert_alpha()
+        player_walk1 = pygame.image.load("Graphics/Player/player_walk_1.png").convert_alpha()
+        player_walk2 = pygame.image.load("Graphics/Player/player_walk_2.png").convert_alpha()
         self.player_walk = [player_walk1, player_walk2]
         self.player_index = 0
-        self.player_jump = pygame.image.load("Graphics\Player\jump.png").convert_alpha()
+        self.player_jump = pygame.image.load("Graphics/Player/jump.png").convert_alpha()
 
         self.image = self.player_walk[self.player_index]
         self.rect = self.image.get_rect(midbottom = (80,300))
@@ -46,13 +46,13 @@ class Obstacle(pygame.sprite.Sprite):
         super().__init__()
 
         if type == "fly":
-            fly_frame_1 = pygame.image.load("Graphics\Fly\Fly1.png").convert_alpha()
-            fly_frame_2 = pygame.image.load("Graphics\Fly\Fly2.png").convert_alpha()
+            fly_frame_1 = pygame.image.load("Graphics/Fly/Fly1.png").convert_alpha()
+            fly_frame_2 = pygame.image.load("Graphics/Fly/Fly2.png").convert_alpha()
             self.frames = [fly_frame_1, fly_frame_2]
             y_pos = 210
         else:
-            snail_frame_1 = pygame.image.load("Graphics\Snail\snail1.png").convert_alpha()
-            snail_frame_2 = pygame.image.load("Graphics\Snail\snail2.png").convert_alpha()
+            snail_frame_1 = pygame.image.load("Graphics/Snail/snail1.png").convert_alpha()
+            snail_frame_2 = pygame.image.load("Graphics/Snail/snail2.png").convert_alpha()
             self.frames = [snail_frame_1, snail_frame_2]
             y_pos = 300
         
@@ -103,7 +103,7 @@ obstacles_speed = 15
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 pygame.display.set_caption("DA PUNK RUNNA")
 clock = pygame.time.Clock()
-test_font = pygame.font.Font("Fonts\slkscr.ttf",50)
+test_font = pygame.font.Font("Fonts/slkscr.ttf",50)
 
 #Groups
 player = pygame.sprite.GroupSingle()
@@ -113,14 +113,14 @@ obstacle_group = pygame.sprite.Group()
 
 
 
-sky_surf = pygame.image.load("Background\Sky.png").convert_alpha()
-ground_surf = pygame.image.load("Background\ground.png").convert_alpha()
+sky_surf = pygame.image.load("Background/Sky.png").convert_alpha()
+ground_surf = pygame.image.load("Background/ground.png").convert_alpha()
 
 sky_width, sky_height = sky_surf.get_size()
 
 
 #Intro Screen
-player_stand = pygame.image.load("Graphics\Player\player_stand.png")
+player_stand = pygame.image.load("Graphics/Player/player_stand.png")
 player_stand = pygame.transform.rotozoom(player_stand,0,2)
 player_stand_rect = player_stand.get_rect(center = (SCREEN_WIDTH/2,SCREEN_HEIGHT/2))
 
